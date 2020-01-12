@@ -1,0 +1,149 @@
+<h4>Admission Form</h4>
+<form [formGroup]="admissionForm">
+  <div class="form-group">
+    <label for="">First Name</label>
+    <input
+      type="text"
+      name="firstName"
+      class="form-control"
+      formControlName="firstName"
+    />
+    <span
+      *ngIf="
+        admissionForm.controls['firstName'].touched &&
+        admissionForm.controls['firstName'].invalid
+      "
+    >
+      <span *ngIf="admissionForm.controls['firstName'].errors.required">
+        First Name is required
+      </span>
+      <span *ngIf="admissionForm.controls['firstName'].errors.maxlength">
+        Name must be 20 characters long.
+      </span>
+      <span *ngIf="admissionForm.controls['firstName'].errors.pattern"
+        >Name must be alpthabets</span
+      >
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="">Last Name</label>
+    <input
+      type="text"
+      name="lastName"
+      class="form-control"
+      formControlName="lastName"
+    />
+    <span
+      *ngIf="
+        admissionForm.controls['lastName'].touched &&
+        admissionForm.controls['lastName'].invalid
+      "
+    >
+      <span *ngIf="admissionForm.controls['lastName'].errors.required">
+        First Name is required
+      </span>
+      <span *ngIf="admissionForm.controls['lastName'].errors.maxlength">
+        Name must be 20 characters long.
+      </span>
+      <span *ngIf="admissionForm.controls['lastName'].errors.pattern"
+        >Name must be alpthabets only</span
+      >
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="">Class</label>
+    <input
+      type="text"
+      name="class"
+      class="form-control"
+      formControlName="class"
+    />
+    <span
+      *ngIf="
+        admissionForm.controls['class'].touched &&
+        admissionForm.controls['class'].invalid
+      "
+    >
+      <span *ngIf="admissionForm.controls['class'].errors.required"
+        >Class is required</span
+      >
+      <span *ngIf="admissionForm.controls['class'].errors.pattern"
+        >Class must be numbers and strings</span
+      >
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="">Percentage</label>
+    <input
+      type="text"
+      name="percentage"
+      class="form-control"
+      formControlName="percentage"
+    />
+    <span
+      *ngIf="
+        admissionForm.controls['percentage'].touched &&
+        admissionForm.controls['percentage'].invalid
+      "
+    >
+      <span *ngIf="admissionForm.controls['percentage'].errors.required"
+        >Percentage of marks is required</span
+      >
+      <span *ngIf="admissionForm.controls['percentage'].errors.pattern"
+        >Percentage of marks must be numbers</span
+      >
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="">Date</label>
+    <input
+      type="date"
+      name="date"
+      class="form-control"
+      formControlName="date"
+      (change)="isValidDate($event)"
+    />
+    <span
+      *ngIf="
+        (admissionForm.controls['date']?.touched &&
+          admissionForm.controls['date']?.invalid) ||
+        isDateInvalid
+      "
+    >
+      <span
+        *ngIf="
+          admissionForm.controls['date'].errors?.required && !isDateInvalid
+        "
+        >Date is required</span
+      >
+      <span *ngIf="isDateInvalid">Please enter valid date</span>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="">Year of pass</label>
+    <input
+      type="date"
+      name="year"
+      class="form-control"
+      formControlName="year"
+    />
+    <span
+      *ngIf="
+        admissionForm.controls['year'].touched &&
+        admissionForm.controls['year'].invalid
+      "
+    >
+      <span *ngIf="admissionForm.controls['year'].errors?.required"
+        >Date is required</span
+      >
+      <span *ngIf="admissionForm.controls['year'].errors.YearValidator"
+        >Year must be Lessthan 2017</span
+      >
+    </span>
+  </div>
+
+  <button type="submit" [disabled]="admissionForm.invalid" (click)="save()">
+    Submit
+  </button>
+</form>

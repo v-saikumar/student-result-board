@@ -1,0 +1,15 @@
+a {
+  font-size: 18px;
+  margin: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 2px;
+}
+a:hover {
+  background-color: silver;
+  color: aliceblue;
+}
+.active {
+  color: red;
+}

@@ -16,3 +16,10 @@ table {
 .Fail {
   color: red;
 }
+.head {
+  font-weight: bold;
+}
+.sub-head {
+  font-weight: bold;
+  font-style: italic;
+}

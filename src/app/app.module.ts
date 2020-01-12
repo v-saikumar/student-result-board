@@ -5,9 +5,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { StudentComponent } from "./student/student.component";
+import { StudentFormComponent } from './student-form/student-form.component';
 
 @NgModule({
-  declarations: [AppComponent, StudentComponent],
+  declarations: [AppComponent, StudentComponent, StudentFormComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

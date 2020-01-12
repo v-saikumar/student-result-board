@@ -1,20 +1,21 @@
-<p>student works!</p>
 <table>
   <tr>
-    <th colspan="4">Student Result Board</th>
+    <td class="head" colspan="4">Student Result Board</td>
     <!-- <td>&nbsp;</td>
-    <td>&nbsp;</td> -->
+    <td>&nbsp;</td>
+  <td>&nbsp;</td> -->
   </tr>
-  <tr>
-    <th>Student Name</th>
-    <th>Roll Number</th>
-    <th>Total Marks</th>
-    <th>Status</th>
+  <tr class="sub-head">
+    <td>Student Name</td>
+    <td>Roll Number</td>
+    <td>Total Marks</td>
+    <td>Status</td>
   </tr>
   <tr *ngFor="let student of students" [ngClass]="student.status">
     <td>{{ student.name | titlecase }}</td>
     <td>{{ student.rollNumber }}</td>
     <td>{{ student.totalMarks }}</td>
+    <!-- <td>{{ student.total }}</td> -->
     <td>{{ student.status }}</td>
   </tr>
 </table>

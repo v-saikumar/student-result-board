@@ -21,7 +21,11 @@ export class StudentComponent implements OnInit {
 
       this.students.forEach(student => {
         let marks = student.marks;
-
+        // let total = 0;
+        // for (let property in marks) {
+        //   total += parseFloat(marks[property]);
+        // }
+        // student["total"] = total;
         let totalmarks =
           parseInt(marks.Maths) +
           parseInt(marks.English) +
@@ -42,7 +46,6 @@ export class StudentComponent implements OnInit {
         for (let j = 1 + i; j < this.students.length; j++) {
           if (this.students[i].totalMarks < this.students[j].totalMarks) {
             count++;
-            break;
           }
         } //inner loop
         if (this.students[i].status == "Pass" && count == 0) {
